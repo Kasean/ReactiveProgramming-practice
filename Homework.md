@@ -12,7 +12,9 @@
 ```
 2. Create Reactive Repository
 3. Create Setup class with following functionality:
+   
     3.1. Requests items from https://webservice.rakuten.co.jp/explorer/api/IchibaItem/Search
+   
     3.2. Parse Json Response using reactive pipelines and save objects using reactive repository
  
 ### Task 2 - API for Sports (40 Points)
