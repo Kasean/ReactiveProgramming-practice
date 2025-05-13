@@ -1,0 +1,8 @@
+spring:
+  r2dbc:
+    url: r2dbc:postgresql://localhost:5432/reactive_db
+    username: reactive_user
+    password: reactive_pass
+    pool:
+      initial-size: 5
+      max-size: 10
