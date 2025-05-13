@@ -41,10 +41,10 @@ public class RakutenService {
                             .onBackpressureBuffer(20,
                                     page -> LOGGER.error("Buffer overflow for page: {}", page))
                             .flatMap(page -> fetchPage(page)
-                                    .subscribeOn(Schedulers.parallel()), 5)
+                                    .subscribeOn(Schedulers.parallel()), Runtime.getRuntime().availableProcessors())
                             .doOnNext(items -> {
                                 int current = processedPages.incrementAndGet();
-                                if (current % 10 == 0) { // Логируем каждые 10 страниц
+                                if (current % 10 == 0) {
                                     LOGGER.info(String.format("Processed %d/%d pages (%.1f%%)%n",
                                             current, totalPages, (current * 100.0 / totalPages)));
                                 }
